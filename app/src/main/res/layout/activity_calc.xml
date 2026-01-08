@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:padding="8dp"
+    tools:context=".CalcActivity">
+
+    <TextView
+        android:id="@+id/result_text_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="bottom|end"
+        android:padding="24dp"
+        android:textColor="@color/white"
+        android:textSize="56sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/result_text_view">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/g1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/g2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/g3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ac"
+            style="@style/arth_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:text="AC"
+            android:textColor="@color/light_blue"
+            app:layout_constraintBottom_toTopOf="@+id/btn_7"
+            app:layout_constraintEnd_toStartOf="@+id/g2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_del"
+            style="@style/arth_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:text="DEL"
+            app:layout_constraintBottom_toTopOf="@+id/btn_9"
+            app:layout_constraintEnd_toStartOf="@+id/g3"
+            app:layout_constraintStart_toStartOf="@+id/g2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_div"
+            style="@style/arth_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="operationOnClick"
+            android:text="/"
+            app:layout_constraintBottom_toTopOf="@+id/btn_mul"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/g3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_7"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="7"
+            app:layout_constraintBottom_toTopOf="@+id/btn_4"
+            app:layout_constraintEnd_toStartOf="@+id/g1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ac" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_8"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="8"
+            app:layout_constraintBottom_toTopOf="@+id/btn_5"
+            app:layout_constraintEnd_toStartOf="@+id/g2"
+            app:layout_constraintStart_toStartOf="@+id/g1"
+            app:layout_constraintTop_toBottomOf="@+id/btn_ac" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_9"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="9"
+            app:layout_constraintBottom_toTopOf="@+id/btn_6"
+            app:layout_constraintEnd_toStartOf="@+id/g3"
+            app:layout_constraintStart_toStartOf="@+id/g2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_del" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_mul"
+            style="@style/arth_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="operationOnClick"
+            android:text="*"
+            app:layout_constraintBottom_toTopOf="@+id/btn_sub"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/g3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_div" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_4"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="4"
+            app:layout_constraintBottom_toTopOf="@+id/btn_1"
+            app:layout_constraintEnd_toStartOf="@+id/g1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_7" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_5"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="5"
+            app:layout_constraintBottom_toTopOf="@+id/btn_2"
+            app:layout_constraintEnd_toStartOf="@+id/g2"
+            app:layout_constraintStart_toStartOf="@+id/g1"
+            app:layout_constraintTop_toBottomOf="@+id/btn_8" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_6"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="6"
+            app:layout_constraintBottom_toTopOf="@+id/btn_3"
+            app:layout_constraintEnd_toStartOf="@+id/g3"
+            app:layout_constraintStart_toStartOf="@+id/g2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_9" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_sub"
+            style="@style/arth_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="operationOnClick"
+            android:text="-"
+            app:layout_constraintBottom_toTopOf="@+id/btn_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/g3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_mul" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_1"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="1"
+            app:layout_constraintBottom_toTopOf="@+id/btn_0"
+            app:layout_constraintEnd_toStartOf="@+id/g1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_4" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_2"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="2"
+            app:layout_constraintBottom_toTopOf="@+id/btn_0"
+            app:layout_constraintEnd_toStartOf="@+id/g2"
+            app:layout_constraintStart_toStartOf="@+id/g1"
+            app:layout_constraintTop_toBottomOf="@+id/btn_5" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_3"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="3"
+            app:layout_constraintBottom_toTopOf="@+id/btn_dot"
+            app:layout_constraintEnd_toStartOf="@+id/g3"
+            app:layout_constraintStart_toStartOf="@+id/g2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_6" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add"
+            style="@style/arth_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="operationOnClick"
+            android:text="+"
+            app:layout_constraintBottom_toTopOf="@+id/btn_equal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/g3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_sub" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_0"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/g2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_dot"
+            style="@style/digit_btn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="4dp"
+            android:onClick="digitOnClick"
+            android:text="."
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/g3"
+            app:layout_constraintStart_toStartOf="@+id/g2"
+            app:layout_constraintTop_toBottomOf="@+id/btn_3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_equal"
+            style="@style/arth_btn"
+            android:layout_width="89dp"
+            android:layout_height="141dp"
+            android:layout_margin="4dp"
+            android:backgroundTint="@color/light_blue"
+            android:text="="
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/g3"
+            app:layout_constraintTop_toBottomOf="@+id/btn_add"
+            app:layout_constraintVertical_weight="2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
